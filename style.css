@@ -22,10 +22,11 @@ body{
     height: 600px;
 }
 
-.squares{
+.square{
     width: 200px;
     height: 200px;
-    border: solid blue 1px;
+    text-align: center;
+    border: solid black 1px;
     color: palevioletred;
     cursor: pointer;
 }
