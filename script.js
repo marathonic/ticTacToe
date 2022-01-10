@@ -16,6 +16,7 @@ const theGame = (() => {
         let sq8 = document.querySelector('#sq8');
         let sq9 = document.querySelector('#sq9');
         let container = document.querySelector('#container');
+        let myArr = [];
         //Let's figure out how to change the shape every time a move is played.
         //maybe we can add an eventListener to the container div! Upon clicking inside the container, change the shape!
         ////
@@ -32,66 +33,103 @@ const theGame = (() => {
             if(sq1.textContent) return false;
             sq1.textContent = shape;
             changeShape();
+            myArr.push(shape)
         })
         sq2.addEventListener('click',function(){
             if(sq2.textContent) return false;
             sq2.textContent = shape;
             changeShape();
+            myArr.push(shape)
         })
         sq3.addEventListener('click',function(){
             if(sq3.textContent) return false;
             sq3.textContent = shape;
             changeShape();
+            myArr.push(shape)
         })
         sq4.addEventListener('click',function(){
             if(sq4.textContent) return false;
             sq4.textContent = shape;
             changeShape();
+            myArr.push(shape)
         })
         sq5.addEventListener('click',function(){
             if(sq5.textContent) return false;
             sq5.textContent = shape;
             changeShape();
+            myArr.push(shape)
         })
         sq6.addEventListener('click',function(){
             if(sq6.textContent) return false;
             sq6.textContent = shape;
             changeShape();
+            myArr.push(shape)
         })
         sq7.addEventListener('click',function(){
             if(sq7.textContent) return false;
             sq7.textContent = shape;
             changeShape();
+            myArr.push(shape)
         })
         sq8.addEventListener('click',function(){
             if(sq8.textContent) return false;
             sq8.textContent = shape;
             changeShape();
+            myArr.push(shape)
         })
         sq9.addEventListener('click',function(){
             if(sq9.textContent) return false;
             sq9.textContent = shape;
             changeShape();
+            myArr.push(shape)
         })
 
         container.addEventListener('click',function(){
+
+            //FOR A TIE:
+                
+
             //FOR x:
             //first row
-                if(sq1.textContent == 'x' && sq2.textContent == 'x' && sq3.textContent == 'x') alert('x wins!');
+                if(sq1.textContent == 'x' && sq2.textContent == 'x' && sq3.textContent == 'x') {
+                    myArr.push('xWins');
+                    alert('x wins');
+                };
             //first column
-                if(sq1.textContent == 'x' && sq4.textContent == 'x' && sq7.textContent == 'x') alert('x wins!');
+                if(sq1.textContent == 'x' && sq4.textContent == 'x' && sq7.textContent == 'x') {
+                    myArr.push('xWins');
+                    alert('x wins');
+                };
             //second row
-                if(sq4.textContent == 'x' && sq5.textContent == 'x' && sq6.textContent == 'x') alert('x wins!');
+                if(sq4.textContent == 'x' && sq5.textContent == 'x' && sq6.textContent == 'x') {
+                    myArr.push('xWins');
+                    alert('x wins');
+                };
             //third row
-                if(sq7.textContent == 'x' && sq8.textContent == 'x' && sq9.textContent == 'x') alert('x wins!');
+                if(sq7.textContent == 'x' && sq8.textContent == 'x' && sq9.textContent == 'x') {
+                    myArr.push('xWins');
+                    alert('x wins');
+                };
             //middle column
-                if(sq2.textContent == 'x' && sq5.textContent == 'x' && sq8.textContent == 'x') alert('x wins!');
+                if(sq2.textContent == 'x' && sq5.textContent == 'x' && sq8.textContent == 'x') {
+                    myArr.push('xWins');
+                    alert('x wins');
+                };
             //third column
-                if(sq3.textContent == 'x' && sq6.textContent == 'x' && sq9.textContent == 'x') alert('x wins!');
+                if(sq3.textContent == 'x' && sq6.textContent == 'x' && sq9.textContent == 'x') {
+                    myArr.push('xWins');
+                    alert('x wins');
+                };
             //first diagonal
-                if(sq1.textContent == 'x' && sq5.textContent == 'x' && sq9.textContent == 'x') alert('x wins!');
+                if(sq1.textContent == 'x' && sq5.textContent == 'x' && sq9.textContent == 'x') {
+                    myArr.push('xWins');
+                    alert('x wins');
+                };
             //second diagonal            
-                if(sq7.textContent == 'x' && sq5.textContent == 'x' && sq3.textContent == 'x') alert('x wins!');
+                if(sq7.textContent == 'x' && sq5.textContent == 'x' && sq3.textContent == 'x') {
+                    myArr.push('xWins');
+                    alert('x wins');
+                };
             
             //FOR o:
                 //first row
@@ -111,6 +149,10 @@ const theGame = (() => {
             //second diagonal            
                 if(sq7.textContent == 'o' && sq5.textContent == 'o' && sq3.textContent == 'o') alert('o wins!');
             
+            //FOR A TIE:
+            if(myArr.length == 9 && !myArr.includes('xWins') && !myArr.includes('oWins')){
+                alert('Tie!');
+            }
             })
 
         return {
@@ -126,6 +168,7 @@ const theGame = (() => {
             sq8,
             sq9,
             changeShape,
+            myArr,
             // checkEndGame,
         }
     })();
@@ -150,6 +193,7 @@ const Player = (name,level) => {
 
 return {
     Gameboard,
+    myBoard,
     appendToBoard,
     Player,
     };
