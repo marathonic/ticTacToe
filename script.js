@@ -17,6 +17,9 @@ const theGame = (() => {
         let sq9 = document.querySelector('#sq9');
         let container = document.querySelector('#container');
         let myArr = [];
+        let nameLeft = document.querySelector('#nameLeft');
+        let nameRight = document.querySelector('#nameRight');
+        let popupDiv = document.querySelector('#popupDiv');        
         //Let's figure out how to change the shape every time a move is played.
         //maybe we can add an eventListener to the container div! Upon clicking inside the container, change the shape!
         ////
@@ -26,6 +29,15 @@ const theGame = (() => {
         //     if(shape == 'x') return shape = 'o';
         //     if(shape == 'o') return shape = 'x';
         // })
+
+        
+
+        //we're trying a different route, but we could just get the name like ths:
+        // function getName(){
+        //     let userName = prompt(`Player name: `);
+        //     nameLeft.textContent = userName;
+        // }
+        // getName();
     
         const changeShape = () => shape == 'x' ? shape = 'o' : shape = 'x';
         
@@ -83,6 +95,10 @@ const theGame = (() => {
             changeShape();
             myArr.push(shape)
         })
+
+        function toggleOverlay(){
+
+        }
 
         container.addEventListener('click',function(){
 
