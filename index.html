@@ -9,7 +9,25 @@
     
 </head>
 <body>
+    <div id="overlay">
+        <h3 id="welcome">tic tac toe</h3 id="welcome">
+            <p>Enter a name to play!</p>
+            <label for="playerName"></label>
+            <input type="text" name="playerName" id="playerName">
+            <div>
+                <input type="button" id="playerNameBtn" value="play">
+            </div>
+    </div>
+    <div id="overlayPlayerWin">
+        <h3 id="overlayPlayerName"></h3>
+    </div>
+    <div class="nameDiv">
+    <h3 class="names" id="nameLeft">test1</h3>
+    
+    </div>
     <div id="bigBoiContainer">
+        
+        
         <div id="container">
             <div class="square" id="sq1"></div>
             <div class="square" id="sq2"></div>
@@ -21,7 +39,9 @@
             <div class="square" id="sq8"></div>
             <div class="square" id="sq9"></div>
         </div>
+        <input type="button" id="playBtn" value="reset">
     </div>
+    <h3 class="names" id="nameRight">   CPU</h3>
     <script src="script.js"></script>
 </body>
 </html>
