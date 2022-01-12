@@ -20,18 +20,27 @@ const theGame = (() => {
         let nameLeft = document.querySelector('#nameLeft');
         let nameRight = document.querySelector('#nameRight');
         let popupDiv = document.querySelector('#popupDiv');        
+        let playerName = document.querySelector('#playerName');
+        let playerNameBtn = document.querySelector('#playerNameBtn');
+        let playBtn = document.querySelector('#playBtn');
+        // let overlay = document.querySelector('#overlay');
         //Let's figure out how to change the shape every time a move is played.
         //maybe we can add an eventListener to the container div! Upon clicking inside the container, change the shape!
         ////
         
-    
+        playerNameBtn.addEventListener('click', function(){
+            let user = playerName.value; 
+            nameLeft.textContent = playerName.value;
+            document.getElementById('overlay').style.display="none";
+        })
+
         // container.addEventListener('click',function(){
         //     if(shape == 'x') return shape = 'o';
         //     if(shape == 'o') return shape = 'x';
         // })
 
         
-
+        playBtn.addEventListener('click', resetGame());
         //we're trying a different route, but we could just get the name like ths:
         // function getName(){
         //     let userName = prompt(`Player name: `);
@@ -100,6 +109,30 @@ const theGame = (() => {
 
         }
 
+        function xWinner(){
+            myArr.push('xWins');
+                    alert('x wins');
+                    console.log('this is myArr before clearing it');
+                    console.log(myArr);
+                    console.log('this is myArr after clearing it:');
+                    myArr.length = 0;
+                    console.log(myArr);
+        }
+
+        function oWinner(){
+            myArr.push('oWins');
+            alert('o wins');
+            console.log('this is myArr before clearing it');
+            console.log(myArr);
+            console.log('this is myArr after clearing it');
+            myArr.length = 0;
+            console.log(myArr);
+        }
+
+        function resetGame(){
+            sq1.textContent = '';
+        };
+
         container.addEventListener('click',function(){
 
             //FOR A TIE:
@@ -108,8 +141,7 @@ const theGame = (() => {
             //FOR x:
             //first row
                 if(sq1.textContent == 'x' && sq2.textContent == 'x' && sq3.textContent == 'x') {
-                    myArr.push('xWins');
-                    alert('x wins');
+                    xWinner();                    
                 };
             //first column
                 if(sq1.textContent == 'x' && sq4.textContent == 'x' && sq7.textContent == 'x') {
@@ -149,7 +181,7 @@ const theGame = (() => {
             
             //FOR o:
                 //first row
-                if(sq1.textContent == 'o' && sq2.textContent == 'o' && sq3.textContent == 'o') alert('o wins!');
+                if(sq1.textContent == 'o' && sq2.textContent == 'o' && sq3.textContent == 'o') oWinner();
             //first column
                 if(sq1.textContent == 'o' && sq4.textContent == 'o' && s7.textContent == 'o') alert('o wins!');
             //second row

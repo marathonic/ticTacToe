@@ -20,6 +20,10 @@
 
 }
 
+.hidden{
+    display: none;
+}
+
 #playerName{
     width: 500px;
     height: 50px;
@@ -60,6 +64,7 @@ body{
 }
 
 #playBtn{
+    display:block;
     background-color: firebrick;
     width: 166px;
     height: 100px;
