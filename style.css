@@ -35,6 +35,16 @@
     z-index: 3;
 }
 
+#closeVictoryPopup{
+    background-color: white;
+    width: 129x;
+    height: 129px;
+    text-align: center;
+    color: #85144b;
+    font-weight: bold;
+    font-size: 69px;
+}
+
 .hidden{
     display: none;
 }
@@ -47,6 +57,13 @@
     font-size: 42px;
     text-align: center;
     border-radius: 6px;
+}
+
+#playerWinCounter{
+    position: fixed;
+    margin: -300px;
+    float: left;
+
 }
 
 #playerNameBtn{

@@ -26,6 +26,8 @@ const theGame = (() => {
         // let overlay = document.querySelector('#overlay');
         let overlayPlayerWin = document.getElementById('overlayPlayerWin');
         let overlayPlayerName = document.getElementById('overlayPlayerName');
+        let playerWinCount = 0;
+        let computerWinCount = 0;
         //Let's figure out how to change the shape every time a move is played.
         //maybe we can add an eventListener to the container div! Upon clicking inside the container, change the shape!
         ////
@@ -128,6 +130,8 @@ const theGame = (() => {
         function xWinner(){
             myArr.push('xWins');
                     alert('x wins');
+                    // playerWinCount++;
+                    // nameLeft.textContent = `${nameLeft.textContent} = ${playerWinCount}`;
                     console.log('this is myArr before clearing it');
                     console.log(myArr);
                     console.log('this is myArr after clearing it:');
@@ -139,6 +143,7 @@ const theGame = (() => {
                     window.addEventListener('keydown', function(event){
                         if(event.key === 'Escape'){
                             overlayPlayerWin.style.display='none';
+                            playBtn.click();
                         }
                     })
         }
@@ -151,9 +156,22 @@ const theGame = (() => {
             console.log('this is myArr after clearing it');
             myArr.length = 0;
             console.log(myArr);
+            overlayPlayerName.textContent = 'CPU wins!';
+            overlayPlayerWin.style.display="block";
+
+            window.addEventListener('keydown', function(event){
+                if(event.key === 'Escape'){
+                    overlayPlayerWin.style.display="none";
+                    playBtn.click();
+                }
+            })
         }
 
-        
+        document.getElementById('closeVictoryPopup').addEventListener('click',function(){
+            overlayPlayerWin.style.display="none";
+            playBtn.click();
+
+        })
 
         container.addEventListener('click',function(){
 
