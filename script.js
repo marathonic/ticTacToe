@@ -28,6 +28,9 @@ const theGame = (() => {
         let overlayPlayerName = document.getElementById('overlayPlayerName');
         let playerWinCount = 0;
         let computerWinCount = 0;
+        let tradeShapesBtn = document.getElementById('tradeShapes');
+        let p1Shape = document.querySelector('#playerOneShape');
+        let p2Shape = document.querySelector('#playerTwoShape');
         //Let's figure out how to change the shape every time a move is played.
         //maybe we can add an eventListener to the container div! Upon clicking inside the container, change the shape!
         ////
@@ -35,6 +38,7 @@ const theGame = (() => {
         playerNameBtn.addEventListener('click', function(){
             let user = playerName.value; 
             nameLeft.textContent = playerName.value;
+            nameRight.textContent = playerTwoName.value;
             document.getElementById('overlay').style.display="none";
         })
 
@@ -43,9 +47,14 @@ const theGame = (() => {
         //     if(shape == 'o') return shape = 'x';
         // })
 
-       
+       tradeShapesBtn.addEventListener('click',function(){
+           p1Shape.textContent == 'x' ? p1Shape.textContent = 'o' : p1Shape.textContent = 'x';
+           p2Shape.textContent == 'o' ? p2Shape.textContent = 'x' : p2Shape.textContent = 'o';
+           changeShape();
+       })
 
         playBtn.addEventListener('click', function(){
+            if(myArr.length > 0) changeShape();
             sq1.textContent = '';
             sq2.textContent = '';
             sq3.textContent = '';
@@ -58,6 +67,8 @@ const theGame = (() => {
             myArr.length = 0;
             console.log(myArr);
             playBtn.style.display="none";
+            tradeShapesBtn.style.display="block";
+            // changeShape();
         });
         //we're trying a different route, but we could just get the name like ths:
         // function getName(){
@@ -67,6 +78,10 @@ const theGame = (() => {
         // getName();
     
         const changeShape = () => shape == 'x' ? shape = 'o' : shape = 'x';
+        // const changeShape = () {
+        //     p1Shape == 'x' ? p1Shape = 'o' : p1Shape = 'x';
+        //     p2Shape == 'o' ? p2Shape = 'x' : p2Shape = 'o';
+        // }
         
         sq1.addEventListener('click',function(){
             if(sq1.textContent) return false;
@@ -137,7 +152,14 @@ const theGame = (() => {
                     console.log('this is myArr after clearing it:');
                     myArr.length = 0;
                     console.log(myArr);
-                    overlayPlayerName.textContent = playerName.value + ' wins!';
+
+                    if(p1Shape.textContent == 'x') {
+                        overlayPlayerName.textContent = playerName.value + ' wins!';
+                    }
+                    else if(p2Shape.textContent == 'x'){
+                        overlayPlayerName.textContent = playerTwoName.value + ' wins!';
+                    }
+                    // overlayPlayerName.textContent = playerName.value + ' wins!';
                     overlayPlayerWin.style.display="block";
                     
                     window.addEventListener('keydown', function(event){
@@ -146,6 +168,7 @@ const theGame = (() => {
                             playBtn.click();
                         }
                     })
+                    // changeShape();
         }
 
         function oWinner(){
@@ -156,7 +179,13 @@ const theGame = (() => {
             console.log('this is myArr after clearing it');
             myArr.length = 0;
             console.log(myArr);
-            overlayPlayerName.textContent = 'CPU wins!';
+            if(p2Shape.textContent == 'o'){
+                overlayPlayerName.textContent = nameRight.textContent + ' wins!';
+            }
+            else if(p1Shape.textContent == 'o'){
+                overlayPlayerName.textContent = nameLeft.textContent + ' wins!';
+            }
+            // overlayPlayerName.textContent = `${nameRight.textContent} wins!`;
             overlayPlayerWin.style.display="block";
 
             window.addEventListener('keydown', function(event){
@@ -165,6 +194,7 @@ const theGame = (() => {
                     playBtn.click();
                 }
             })
+            // changeShape();
         }
 
         document.getElementById('closeVictoryPopup').addEventListener('click',function(){
@@ -174,6 +204,9 @@ const theGame = (() => {
         })
 
         container.addEventListener('click',function(){
+
+            //hide trade shapes button:
+                tradeShapesBtn.style.display="none";
 
             //Produce reset button:
                 playBtn.style.display="block";

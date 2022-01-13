@@ -38,18 +38,22 @@
 #closeVictoryPopup{
     background-color: white;
     width: 129x;
-    height: 129px;
+    height: 119px;
     text-align: center;
     color: #85144b;
     font-weight: bold;
     font-size: 69px;
+    cursor: pointer;
+    border: solid lemonchiffon 3px;
+    border-radius: 7px;
 }
 
 .hidden{
     display: none;
 }
 
-#playerName{
+#playerName,
+#playerTwoName {
     width: 500px;
     height: 50px;
     color: #85144b;
@@ -95,6 +99,13 @@ body{
     float: right;
 }
 
+.nameShapes{
+    display: inline-block;
+    color: #3D9970;
+    margin-left: -200px;
+    margin-top: 200px;
+}
+
 #playBtn{
     display:none;
     background-color: rgb(219, 106, 106);
@@ -103,6 +114,19 @@ body{
     border-radius: 7px;
     color: floralwhite;
     font-size: 33px;
+    margin-left: 319px;
+    margin-top: 67px;
+    cursor: pointer;
+}
+
+#tradeShapes{
+    display: block;
+    background-color: #3D9970;
+    width: 166px;
+    height: 100px;
+    border-radius: 7px;
+    color: floralwhite;
+    font-size: 27px;
     margin-left: 319px;
     margin-top: 67px;
     cursor: pointer;
