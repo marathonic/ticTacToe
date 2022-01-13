@@ -38,7 +38,9 @@ const theGame = (() => {
         playerNameBtn.addEventListener('click', function(){
             let user = playerName.value; 
             nameLeft.textContent = playerName.value;
+            if(!nameLeft.textContent) nameLeft.textContent = 'Player One';
             nameRight.textContent = playerTwoName.value;
+            if(!nameRight.textContent) nameRight.textContent = 'Player Two';
             document.getElementById('overlay').style.display="none";
         })
 
@@ -154,10 +156,10 @@ const theGame = (() => {
                     console.log(myArr);
 
                     if(p1Shape.textContent == 'x') {
-                        overlayPlayerName.textContent = playerName.value + ' wins!';
+                        overlayPlayerName.textContent = nameLeft.textContent + ' wins!';
                     }
                     else if(p2Shape.textContent == 'x'){
-                        overlayPlayerName.textContent = playerTwoName.value + ' wins!';
+                        overlayPlayerName.textContent = nameRight.textContent + ' wins!';
                     }
                     // overlayPlayerName.textContent = playerName.value + ' wins!';
                     overlayPlayerWin.style.display="block";
